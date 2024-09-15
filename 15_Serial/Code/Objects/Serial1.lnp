@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Serial1_Rx.obj" 
+TO ".\Objects\Serial1" 
+PRINT(".\Listings\Serial1.m51")

@@ -1,0 +1,72 @@
+C51 COMPILER V9.60.7.0   FOUR_DIGIT                                                        04/22/2024 18:21:47 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE FOUR_DIGIT
+OBJECT MODULE PLACED IN .\Objects\Four_Digit.obj
+COMPILER INVOKED BY: F:\C51\BIN\C51.EXE Four_Digit.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Four_D
+                    -igit.lst) TABS(2) OBJECT(.\Objects\Four_Digit.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          char arr[]={0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F};
+   4          
+   5          sbit D1=P3^0;
+   6          sbit D2=P3^1;
+   7          sbit D3=P3^2;
+   8          sbit D4=P3^3;
+   9          
+  10          void delay(unsigned long int d)
+  11          { while(d--);
+  12   1      }
+  13          
+  14          void main ()
+  15          {
+  16   1        int n; 
+  17   1        
+  18   1        char temp;
+  19   1      
+  20   1        while(1)
+  21   1        {
+  22   2           for(n=1; n<1000; n++)
+  23   2        {
+  24   3                temp=n%10;
+  25   3                P2=arr[temp];
+  26   3                D1=0; delay(5000);  D1=1;
+  27   3                n=n/10;
+  28   3          
+  29   3                temp=n%10;
+  30   3                P2=arr[temp];
+  31   3                D2=0; delay(5000);  D2=1;
+  32   3                n=n/10;
+  33   3              
+  34   3                temp=n%10;
+  35   3                P2=arr[temp];
+  36   3                D3=0; delay(5000);  D3=1;
+  37   3                n=n/10;
+  38   3              
+  39   3                
+  40   3            
+  41   3        }
+  42   2        }
+  43   1      
+  44   1        
+  45   1        
+  46   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    177    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     10       5
+C51 COMPILER V9.60.7.0   FOUR_DIGIT                                                        04/22/2024 18:21:47 PAGE 2   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

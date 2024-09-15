@@ -1,0 +1,43 @@
+C51 COMPILER V9.60.7.0   LOCK_LED                                                          04/18/2024 16:11:57 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LOCK_LED
+OBJECT MODULE PLACED IN .\Objects\Lock_Led.obj
+COMPILER INVOKED BY: F:\C51\BIN\C51.EXE Lock_Led.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Lock_Led
+                    -.lst) TABS(2) OBJECT(.\Objects\Lock_Led.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          sbit Switch=P1^0;
+   4          sbit LED=P3^0;
+   5          
+   6          void main ()
+   7          {
+   8   1        while(1)
+   9   1        {
+  10   2            if(Switch==0)
+  11   2            {
+  12   3                LED=1;
+  13   3            }
+  14   2            else
+  15   2            {
+  16   3                LED=0;
+  17   3            }
+  18   2        }
+  19   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     11    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

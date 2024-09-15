@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Simple_Led.obj" 
+TO ".\Objects\Simple_Led_Program" 
+PRINT(".\Listings\Simple_Led_Program.m51")

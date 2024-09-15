@@ -1,0 +1,83 @@
+C51 COMPILER V9.60.7.0   BCD_TASK                                                          05/02/2024 18:33:42 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE BCD_TASK
+OBJECT MODULE PLACED IN .\Objects\BCD_Task.obj
+COMPILER INVOKED BY: F:\C51\BIN\C51.EXE BCD_Task.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\BCD_Task
+                    -.lst) TABS(2) OBJECT(.\Objects\BCD_Task.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          sbit RS=P2^0;
+   4          sbit EN=P2^1;
+   5          
+   6          void delay(unsigned int d)
+   7          { while(d--);
+   8   1      }
+   9          void cmdwrt(unsigned char cmd)
+  10          { P0=cmd;
+  11   1        RS=0;
+  12   1        EN=1; delay(100);
+  13   1        EN=0; delay(100);
+  14   1      }
+  15          void datawrt(unsigned char dat)
+  16          { P0=dat;
+  17   1        RS=1;
+  18   1        EN=1; delay(100);
+  19   1        EN=0; delay(100);
+  20   1      }
+  21          void strwrt(unsigned char *ptr)
+  22          { for(  ; *ptr!=0; ptr++)
+  23   1          datawrt(*ptr);
+  24   1      }
+  25          void lcdinit()
+  26          { cmdwrt(0x38); //LCD Initialization in 8-bit mode.
+  27   1        cmdwrt(0x0E); //Display ON, Cursor ON
+  28   1        cmdwrt(0x06); //Cursor Autoincrement
+  29   1        cmdwrt(0x01); //Clear LCD
+  30   1        delay(1000);
+  31   1      }
+  32          
+  33          void main()
+  34          { 
+  35   1          
+  36   1          
+  37   1          lcdinit();
+  38   1          cmdwrt(0x81);
+  39   1          datawrt(0x30);
+  40   1          datawrt(0x31);
+  41   1          datawrt(0x32);
+  42   1          datawrt(0x33);
+  43   1          datawrt(0x34);
+  44   1          datawrt(0x35);
+  45   1          datawrt(0x36);
+  46   1          datawrt(0x37);;
+  47   1          datawrt(0x38);
+  48   1          datawrt(0x39);
+  49   1          
+  50   1          while(1);
+  51   1          
+  52   1          
+  53   1        
+  54   1          
+C51 COMPILER V9.60.7.0   BCD_TASK                                                          05/02/2024 18:33:42 PAGE 2   
+
+  55   1          
+  56   1          while(1);
+  57   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    155    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

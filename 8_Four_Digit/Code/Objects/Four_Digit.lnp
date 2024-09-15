@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\4_digit.obj" 
+TO ".\Objects\Four_Digit" 
+PRINT(".\Listings\Four_Digit.m51")

@@ -1,0 +1,42 @@
+C51 COMPILER V9.60.7.0   SERIAL1_RX                                                        05/20/2024 19:20:50 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE SERIAL1_RX
+OBJECT MODULE PLACED IN .\Objects\Serial1_Rx.obj
+COMPILER INVOKED BY: F:\C51\BIN\C51.EXE Serial1_Rx.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Serial
+                    -1_Rx.lst) TABS(2) OBJECT(.\Objects\Serial1_Rx.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          sbit LED=P2^0;
+   3          
+   4          void main()
+   5          { char str[]="Onkar",c=0,byte;
+   6   1        TMOD=0x20;
+   7   1        SCON=0x50;
+   8   1        TH1=-3;
+   9   1        TR1=1;
+  10   1        while(1)  
+  11   1        { while(RI==0);
+  12   2          RI=0;
+  13   2          byte=SBUF;
+  14   2          if(byte=='A') LED=1;
+  15   2          else          LED=0;
+  16   2        }
+  17   1        
+  18   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     51    ----
+   CONSTANT SIZE    =      6    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       7
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

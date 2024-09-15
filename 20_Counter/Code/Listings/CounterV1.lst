@@ -1,0 +1,40 @@
+C51 COMPILER V9.60.7.0   COUNTERV1                                                         07/03/2024 20:14:41 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE COUNTERV1
+OBJECT MODULE PLACED IN .\Objects\CounterV1.obj
+COMPILER INVOKED BY: F:\C51\BIN\C51.EXE CounterV1.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Counter
+                    -V1.lst) TABS(2) OBJECT(.\Objects\CounterV1.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          sbit SW=P3^2;
+   4          
+   5          void main()
+   6          { TMOD=0x0D;  
+   7   1        TH0=0;
+   8   1        TL0=0;
+   9   1        TR0=1;
+  10   1        
+  11   1        while(1)
+  12   1        {
+  13   2          P1=TL0;
+  14   2          P2=TH0;
+  15   2        }
+  16   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     18    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

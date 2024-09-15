@@ -1,0 +1,44 @@
+SIMULATION LOG
+==============
+Design:   C:\Users\hp\Desktop\Placement\Microcontroller_Majoj_Sir\2_Microcontroller\Problem_Statement\3_Problem\Circuit\Sample.DSN
+Doc. no.: <NONE>
+Revision: <NONE>
+Author:   <NONE>
+Created:  17/04/24
+Modified: 17/04/24
+
+Compiling source files... 
+Build completed OK.
+Compiling netlist... 
+Linking netlist...
+Partition analysis...
+
+Simulating partition 1 [E1C0DD7B]...
+PROSPICE Release 6.9 SP4 (C) Labcenter Electronics 1993-2006.
+SPICE Kernel Version 3f5. (C) Berkeley University ERL.
+
+Reading netlist...
+Reading SPICE models...
+Building circuit...
+Warning: Net #00037 has no DC path to ground.
+Check pins: U4_IP1--, U4_S1-+, U4_S1-P
+Warning: Net #00038 has no DC path to ground.
+Check pins: U4_IP2--, U4_S2-+, U4_S2-P
+Warning: Net #00062 has no DC path to ground.
+Check pins: U4-A1, U4_IP1-+, X0E579EF8#0-*
+Warning: Net #00063 has no DC path to ground.
+Check pins: U4-A2, U4_IP2-+, X0E579EF8#1-*
+Warning: Net #00070 has no DC path to ground.
+Check pins: U4-K1, U4_S1--, U4_S1-N, X0E579EF8#8-*
+Warning: Net #00071 has no DC path to ground.
+Check pins: U4-K2, U4_S2--, U4_S2-N, X0E579EF8#9-*
+Instantiating SPICE models...
+ERROR: [U1] Unable to open HEX file '..\..\..\..\Users\hp\Desktop\Placement\Microcontroller_Majoj_Sir\2_Microcontroller\Problem_Statement\3_Problem\Code\Objects\Sample.hex'.
+Warning: [U1] No program code loaded.
+[DSIM] BOOT Error.
+Real Time Simulation failed to start
+Totaliters=0, Totalsteps=0, Goodsteps=0, Badsteps=0
+
+
+Real Time Simulation FAILED.
+

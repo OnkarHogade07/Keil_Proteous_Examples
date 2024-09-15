@@ -1,0 +1,81 @@
+C51 COMPILER V9.60.7.0   LCD_4BIT                                                          06/04/2024 19:26:37 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LCD_4BIT
+OBJECT MODULE PLACED IN .\Objects\LCD_4bit.obj
+COMPILER INVOKED BY: F:\C51\BIN\C51.EXE LCD_4bit.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\LCD_4bit
+                    -.lst) TABS(2) OBJECT(.\Objects\LCD_4bit.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          sbit RS=P2^0;
+   3          sbit EN=P2^1;
+   4          
+   5          void delay(unsigned int d)
+   6          { while(d--);
+   7   1      }
+   8          void cmdwrt(unsigned char cmd)
+   9          { P0=(P0 & 0xF0) | (cmd >> 4);
+  10   1        RS=0;
+  11   1        EN=1; delay(100);
+  12   1        EN=0; delay(100);
+  13   1      
+  14   1        P0=(P0 & 0xF0) | (cmd & 0x0F);
+  15   1        RS=0;
+  16   1        EN=1; delay(100);
+  17   1        EN=0; delay(100);
+  18   1      }
+  19          void datawrt(unsigned char dat)
+  20          { P0=(P0 & 0xF0) | (dat >> 4);
+  21   1        RS=1;
+  22   1        EN=1; delay(100);
+  23   1        EN=0; delay(100);
+  24   1      
+  25   1        P0=(P0 & 0xF0) | (dat & 0x0F);
+  26   1        RS=1;
+  27   1        EN=1; delay(100);
+  28   1        EN=0; delay(100);
+  29   1      }
+  30          void strwrt(unsigned char *ptr)
+  31          { for(  ; *ptr!=0; ptr++)
+  32   1          datawrt(*ptr);
+  33   1      }
+  34          void lcdinit()
+  35          { cmdwrt(0x33); //LCD Initialization in 8-bit mode.
+  36   1        cmdwrt(0x32); //LCD Initialization in 8-bit mode.
+  37   1        cmdwrt(0x28); //LCD Initialization in 8-bit mode.
+  38   1        cmdwrt(0x0E); //Display ON, Cursor ON
+  39   1        cmdwrt(0x06); //Cursor Autoincrement
+  40   1        cmdwrt(0x01); //Clear LCD
+  41   1        delay(1000);
+  42   1      }
+  43          void main()
+  44          { char str[]="EMBEDDED SYSTEM";
+  45   1        lcdinit();
+  46   1        cmdwrt(0x80 );
+  47   1        strwrt(str);
+  48   1        cmdwrt(0xC0);
+  49   1        strwrt("CDAC");
+  50   1        datawrt(49);
+  51   1        datawrt(0x37);
+  52   1        datawrt(70);
+  53   1        datawrt(0x7A);
+  54   1        while(1);
+C51 COMPILER V9.60.7.0   LCD_4BIT                                                          06/04/2024 19:26:37 PAGE 2   
+
+  55   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    231    ----
+   CONSTANT SIZE    =     21    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      16
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

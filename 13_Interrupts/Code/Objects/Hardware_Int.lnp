@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Hardware_Int.obj" 
+TO ".\Objects\Hardware_Int" 
+PRINT(".\Listings\Hardware_Int.m51")

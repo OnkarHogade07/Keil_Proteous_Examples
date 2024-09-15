@@ -1,0 +1,159 @@
+C51 COMPILER V9.60.7.0   TASK                                                              04/24/2024 19:07:48 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE TASK
+OBJECT MODULE PLACED IN .\Objects\Task.obj
+COMPILER INVOKED BY: F:\C51\BIN\C51.EXE Task.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Task.lst) TA
+                    -BS(2) OBJECT(.\Objects\Task.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          
+   3          sbit R1=P3^0;
+   4          sbit R2=P3^1;
+   5          sbit R3=P3^2;
+   6          sbit R4=P3^3;
+   7          sbit C1=P3^4;
+   8          sbit C2=P3^5;
+   9          sbit C3=P3^6;
+  10          sbit C4=P3^7;
+  11          
+  12          sbit RS=P2^0;
+  13          sbit EN=P2^1;
+  14          
+  15          
+  16          
+  17          char scan_key()
+  18          {
+  19   1        P3=0xFF;
+  20   1        
+  21   1        R1=0;
+  22   1        if(C1==0)       return 7;
+  23   1        else if(C2==0)  return 8;
+  24   1        else if(C3==0)  return 9;
+  25   1        else if(C4==0)  return '/';
+  26   1        R1=1;
+  27   1        
+  28   1        R2=0;
+  29   1        if(C1==0)       return 4;
+  30   1        else if(C2==0)  return 5;
+  31   1        else if(C3==0)  return 6;
+  32   1        else if(C4==0)  return '*';
+  33   1        R2=1;
+  34   1        
+  35   1        R3=0;
+  36   1        if(C1==0)       return 1;
+  37   1        else if(C2==0)  return 2;
+  38   1        else if(C3==0)  return 3;
+  39   1        else if(C4==0)  return '-';
+  40   1        R3=1;
+  41   1        
+  42   1        R4=0;
+  43   1        if(C1==0)       return 'O';
+  44   1        else if(C2==0)  return 0;
+  45   1        else if(C3==0)  return '=';
+  46   1        else if(C4==0)  return '+';
+  47   1        R4=1;
+  48   1        
+  49   1        return 'x';
+  50   1      }
+  51          
+  52          void delay(unsigned int d)
+  53          { while(d--);
+  54   1      }
+C51 COMPILER V9.60.7.0   TASK                                                              04/24/2024 19:07:48 PAGE 2   
+
+  55          void cmdwrt(unsigned char cmd)
+  56          { P0=cmd;
+  57   1        RS=0;
+  58   1        EN=1; delay(100);
+  59   1        EN=0; delay(100);
+  60   1      }
+  61          void datawrt(unsigned char dat)
+  62          { P0=dat;
+  63   1        RS=1;
+  64   1        EN=1; delay(100);
+  65   1        EN=0; delay(100);
+  66   1      }
+  67          void strwrt(unsigned char *ptr)
+  68          { for(  ; *ptr!=0; ptr++)
+  69   1          datawrt(*ptr);
+  70   1      }
+  71          void lcdinit()
+  72          { cmdwrt(0x38); //LCD Initialization in 8-bit mode.
+  73   1        cmdwrt(0x0E); //Display ON, Cursor ON
+  74   1        cmdwrt(0x06); //Cursor Autoincrement
+  75   1        cmdwrt(0x01); //Clear LCD
+  76   1        delay(1000);
+  77   1      }
+  78          
+  79          void main ()
+  80          {
+  81   1        char key;
+  82   1        
+  83   1        
+  84   1        while(1)
+  85   1        {
+  86   2            do
+  87   2            {
+  88   3                key=scan_key();
+  89   3            }while(key=='x');
+  90   2            
+  91   2            lcdinit();
+  92   2            cmdwrt(0x87);
+  93   2              
+  94   2            switch(key)
+  95   2            { case 1: strwrt("1");  cmdwrt(0xC4); strwrt("Onkar");
+  96   3              break;
+  97   3              case 2: strwrt("2");  cmdwrt(0xC4); strwrt("Samiksha");
+  98   3              break;
+  99   3              case 3: strwrt("3");  cmdwrt(0xC4); strwrt("Vedant");
+ 100   3              break;
+ 101   3              case 4: strwrt("4");  cmdwrt(0xC4); strwrt("Shruti");
+ 102   3              break;
+ 103   3              case 5: strwrt("5");  cmdwrt(0xC4); strwrt("Nikhil");
+ 104   3              break;
+ 105   3              case 6: strwrt("6");  cmdwrt(0xC4); strwrt("Priyanka");
+ 106   3              break;
+ 107   3              case 7: strwrt("7");  cmdwrt(0xC4); strwrt("Akash");
+ 108   3              break;
+ 109   3              case 8: strwrt("8");  cmdwrt(0xC4); strwrt("Shubhangi");
+ 110   3              break;
+ 111   3              case 9: strwrt("9");  cmdwrt(0xC4); strwrt("Charlie");
+ 112   3              break;
+ 113   3              case '/': strwrt("/");cmdwrt(0xC4); strwrt("Mitansh");
+ 114   3              break;
+ 115   3              case '*': strwrt("*");  cmdwrt(0xC4); strwrt("Krushnil");
+ 116   3              break;
+C51 COMPILER V9.60.7.0   TASK                                                              04/24/2024 19:07:48 PAGE 3   
+
+ 117   3              case '-': strwrt("-");  cmdwrt(0xC4); strwrt("Gunjan");
+ 118   3              break;
+ 119   3              case '+': strwrt("+");  cmdwrt(0xC4); strwrt("Sneha");
+ 120   3              break;
+ 121   3              case 'O': strwrt("O");  cmdwrt(0xC4); strwrt("Sagrika");
+ 122   3              break;
+ 123   3              case '0': strwrt("0");  cmdwrt(0xC4); strwrt("Kasturi");
+ 124   3              break;
+ 125   3              
+ 126   3              
+ 127   3            }
+ 128   2            
+ 129   2          }
+ 130   1        
+ 131   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    527    ----
+   CONSTANT SIZE    =    145    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,32 @@
+SIMULATION LOG
+==============
+Design:   C:\Users\hp\Desktop\Placement\Microcontroller_Majoj_Sir\2_Microcontroller\Problem_Statement\15_Serial\Circuit\ter.DSN
+Doc. no.: <NONE>
+Revision: <NONE>
+Author:   <NONE>
+Created:  20/05/24
+Modified: 20/05/24
+
+Compiling source files... 
+Build completed OK.
+Compiling netlist... 
+Linking netlist...
+Partition analysis...
+
+Simulating partition 1 [14CF6F11]...
+PROSPICE Release 6.9 SP4 (C) Labcenter Electronics 1993-2006.
+SPICE Kernel Version 3f5. (C) Berkeley University ERL.
+
+Reading netlist...
+Reading SPICE models...
+Building circuit...
+Instantiating SPICE models...
+ERROR: [U1] Unable to open HEX file '..\..\..\..\Users\hp\Desktop\Placement\Microcontroller_Majoj_Sir\2_Microcontroller\Problem_Statement\15_Serial\Code\Objects\Serial1.hex'.
+Warning: [U1] No program code loaded.
+[DSIM] BOOT Error.
+Real Time Simulation failed to start
+Totaliters=0, Totalsteps=0, Goodsteps=0, Badsteps=0
+
+
+Real Time Simulation FAILED.
+

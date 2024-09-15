@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\All_Component.obj" 
+TO ".\Objects\All_Comp" 
+PRINT(".\Listings\All_Comp.m51")

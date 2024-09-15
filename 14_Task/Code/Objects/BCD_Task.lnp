@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\BCD_Task.obj" 
+TO ".\Objects\BCD_Task" 
+PRINT(".\Listings\BCD_Task.m51")

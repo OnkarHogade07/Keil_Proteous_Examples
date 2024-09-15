@@ -1,0 +1,41 @@
+C51 COMPILER V9.60.7.0   TRIANGULAR                                                        06/05/2024 19:11:23 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE TRIANGULAR
+OBJECT MODULE PLACED IN .\Objects\Triangular.obj
+COMPILER INVOKED BY: F:\C51\BIN\C51.EXE Triangular.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Triang
+                    -ular.lst) TABS(2) OBJECT(.\Objects\Triangular.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          void delay(unsigned int d)
+   3          { while(d--);
+   4   1      }
+   5          void main()
+   6          { unsigned char amp;
+   7   1        while(1)
+   8   1        { for(amp=0 ; amp<255; amp++)
+   9   2          { P2=amp;
+  10   3            delay(80);
+  11   3          }
+  12   2          for(  ;amp>0; amp--)
+  13   2          { P2=amp;
+  14   3            delay(100);
+  15   3          }
+  16   2        }
+  17   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     44    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

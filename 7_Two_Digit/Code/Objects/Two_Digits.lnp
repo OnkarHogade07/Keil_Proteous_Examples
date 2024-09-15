@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\Two.obj" 
+TO ".\Objects\Two_Digits" 
+PRINT(".\Listings\Two_Digits.m51")
